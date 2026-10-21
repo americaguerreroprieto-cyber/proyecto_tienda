@@ -3,224 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda en línea: explora productos y administra tu carrito.">
-    <title>Tienda | Inicio</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #222;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.5;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0 0 .5rem;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: .5rem 1rem;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        nav a:hover,
-        nav a:focus-visible {
-            color: #ffcc00;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .bienvenida {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .bienvenida h2 {
-            margin-top: 0;
-        }
-
-        #productos,
-        #contacto {
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .contenedor-productos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .producto {
-            display: flex;
-            flex: 1 1 220px;
-            flex-direction: column;
-            max-width: 250px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px #ccc;
-        }
-
-        .producto-icono {
-            margin: 0;
-            font-size: 3rem;
-        }
-
-        .producto h3 {
-            margin: .5rem 0;
-        }
-
-        .producto p {
-            margin: .4rem 0;
-        }
-
-        .precio {
-            font-weight: bold;
-        }
-
-        button {
-            border: 0;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-            font: inherit;
-            padding: 10px 20px;
-        }
-
-        button:hover,
-        button:focus-visible {
-            background-color: #555;
-        }
-
-        .producto button {
-            margin-top: auto;
-        }
-
-        .carrito {
-            margin: 30px auto;
-            max-width: 700px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px #ccc;
-        }
-
-        .carrito h2 {
-            margin-top: 0;
-        }
-
-        .carrito-lista {
-            padding-left: 1.5rem;
-        }
-
-        .carrito-item {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: .5rem;
-            padding: .5rem 0;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .carrito-item button {
-            padding: 5px 10px;
-        }
-
-        .carrito-acciones {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .login {
-            max-width: 350px;
-            margin: 40px auto;
-            padding: 25px;
-            border-radius: 10px;
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .login h2 {
-            margin-top: 0;
-        }
-
-        .login input {
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font: inherit;
-        }
-
-        .mensaje {
-            min-height: 1.5em;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        @media (max-width: 500px) {
-            main {
-                padding: 12px;
-            }
-
-            .bienvenida {
-                padding: 20px 8px;
-            }
-
-            .producto {
-                max-width: none;
-            }
-        }
-    </style>
+    <meta name="description" content="Explora productos, administra tu carrito e inicia sesión en nuestra tienda.">
+    <title>Mi Tienda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="tienda.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Mi Tienda</h1>
         <nav aria-label="Navegación principal">
-            <a href="#inicio">Inicio</a>
             <a href="#productos">Productos</a>
-            <a href="#carrito">Carrito (<span id="contador-carrito">0</span>)</a>
+            <a href="#carrito">Carrito (<span data-contador-carrito>0</span>)</a>
             <a href="#contacto">Contacto</a>
             <a href="#inicio-sesion">Iniciar sesión</a>
         </nav>
@@ -236,39 +29,37 @@
             <h2 id="titulo-productos">Nuestros productos</h2>
             <div class="contenedor-productos">
                 <article class="producto">
-                    <p class="producto-icono" aria-hidden="true">🎧</p>
                     <h3>Audífonos</h3>
                     <p>Audífonos cómodos para disfrutar tu música.</p>
                     <p class="precio">$25.00</p>
                     <button type="button" data-producto="Audífonos" data-precio="25">Agregar al carrito</button>
                 </article>
                 <article class="producto">
-                    <p class="producto-icono" aria-hidden="true">⌚</p>
                     <h3>Reloj</h3>
                     <p>Un reloj práctico para acompañarte cada día.</p>
                     <p class="precio">$40.00</p>
                     <button type="button" data-producto="Reloj" data-precio="40">Agregar al carrito</button>
                 </article>
                 <article class="producto">
-                    <p class="producto-icono" aria-hidden="true">🎒</p>
                     <h3>Mochila</h3>
                     <p>Espacio y comodidad para tus actividades.</p>
                     <p class="precio">$35.00</p>
                     <button type="button" data-producto="Mochila" data-precio="35">Agregar al carrito</button>
                 </article>
             </div>
+            <p class="mensaje" data-mensaje-carrito role="status" aria-live="polite"></p>
         </section>
 
         <section class="carrito" id="carrito" aria-labelledby="titulo-carrito">
             <h2 id="titulo-carrito">Tu carrito</h2>
-            <p id="carrito-vacio">Tu carrito está vacío.</p>
-            <ul class="carrito-lista" id="lista-carrito" aria-live="polite"></ul>
-            <p><strong>Total: $<span id="total-carrito">0.00</span></strong></p>
+            <p data-carrito-vacio>Tu carrito está vacío.</p>
+            <ul class="carrito-lista" data-lista-carrito aria-live="polite"></ul>
+            <p><strong>Total: $<span data-total-carrito>0.00</span></strong></p>
             <div class="carrito-acciones">
-                <button type="button" id="vaciar-carrito">Vaciar carrito</button>
-                <button type="button" id="finalizar-compra">Finalizar compra</button>
+                <button type="button" data-vaciar-carrito>Vaciar carrito</button>
+                <button type="button" data-finalizar-compra>Finalizar compra</button>
             </div>
-            <p class="mensaje" id="mensaje-carrito" role="status" aria-live="polite"></p>
+            <p class="mensaje" data-mensaje-carrito role="status" aria-live="polite"></p>
         </section>
 
         <section id="contacto" aria-labelledby="titulo-contacto">
@@ -278,7 +69,7 @@
 
         <section class="login" id="inicio-sesion" aria-labelledby="titulo-login">
             <h2 id="titulo-login">Iniciar sesión</h2>
-            <form id="formulario-login">
+            <form data-formulario-login>
                 <label for="email">Correo electrónico</label>
                 <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" required>
 
@@ -286,93 +77,13 @@
                 <input id="contrasena" name="contrasena" type="password" autocomplete="current-password" placeholder="Contraseña" required>
 
                 <button type="submit">Iniciar sesión</button>
-                <p class="mensaje" id="mensaje-login" role="status" aria-live="polite"></p>
+                <p class="mensaje" data-mensaje-login role="status" aria-live="polite"></p>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="anio"></span> Mi Tienda</p>
+        <p>&copy; <span data-anio></span> Mi Tienda</p>
     </footer>
-
-    <script>
-        const carrito = new Map();
-        const listaCarrito = document.getElementById("lista-carrito");
-        const contadorCarrito = document.getElementById("contador-carrito");
-        const totalCarrito = document.getElementById("total-carrito");
-        const mensajeCarrito = document.getElementById("mensaje-carrito");
-        const carritoVacio = document.getElementById("carrito-vacio");
-
-        function actualizarCarrito() {
-            listaCarrito.replaceChildren();
-            let cantidadTotal = 0;
-            let precioTotal = 0;
-
-            carrito.forEach((producto, nombre) => {
-                cantidadTotal += producto.cantidad;
-                precioTotal += producto.precio * producto.cantidad;
-
-                const item = document.createElement("li");
-                item.className = "carrito-item";
-                const descripcion = document.createElement("span");
-                descripcion.textContent = `${nombre} x ${producto.cantidad} — $${(producto.precio * producto.cantidad).toFixed(2)}`;
-                const quitar = document.createElement("button");
-                quitar.type = "button";
-                quitar.textContent = "Quitar uno";
-                quitar.setAttribute("aria-label", `Quitar una unidad de ${nombre}`);
-                quitar.addEventListener("click", () => {
-                    if (producto.cantidad > 1) {
-                        producto.cantidad -= 1;
-                    } else {
-                        carrito.delete(nombre);
-                    }
-                    mensajeCarrito.textContent = "";
-                    actualizarCarrito();
-                });
-                item.append(descripcion, quitar);
-                listaCarrito.append(item);
-            });
-
-            contadorCarrito.textContent = String(cantidadTotal);
-            totalCarrito.textContent = precioTotal.toFixed(2);
-            carritoVacio.hidden = carrito.size > 0;
-        }
-
-        document.querySelectorAll("[data-producto]").forEach((boton) => {
-            boton.addEventListener("click", () => {
-                const nombre = boton.dataset.producto;
-                const precio = Number(boton.dataset.precio);
-                const producto = carrito.get(nombre);
-                if (producto) {
-                    producto.cantidad += 1;
-                } else {
-                    carrito.set(nombre, { precio, cantidad: 1 });
-                }
-                mensajeCarrito.textContent = `${nombre} agregado al carrito.`;
-                actualizarCarrito();
-            });
-        });
-
-        document.getElementById("vaciar-carrito").addEventListener("click", () => {
-            carrito.clear();
-            mensajeCarrito.textContent = "El carrito está vacío.";
-            actualizarCarrito();
-        });
-
-        document.getElementById("finalizar-compra").addEventListener("click", () => {
-            mensajeCarrito.textContent = carrito.size
-                ? "El carrito está listo. Para procesar pagos se necesita conectar un servidor."
-                : "Agrega un producto antes de finalizar la compra.";
-        });
-
-        document.getElementById("formulario-login").addEventListener("submit", (evento) => {
-            evento.preventDefault();
-            document.getElementById("mensaje-login").textContent =
-                "El formulario funciona, pero la autenticación requiere conectarse a un servidor.";
-        });
-
-        document.getElementById("anio").textContent = String(new Date().getFullYear());
-        actualizarCarrito();
-    </script>
 </body>
 </html>
